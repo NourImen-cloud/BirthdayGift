@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Aya 💜</title>
+  <meta name="description" content="A special birthday surprise made with love, just for Aya." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════ SCENE 1: LOCK SCREEN ══════════════════════ -->
+  <div id="scene-lock" class="scene active">
+    <div class="particles" id="lock-particles"></div>
+    <div class="doodle-layer" id="lock-doodles"></div>
+    <div class="lock-layout">
+
+      <div class="lock-left">
+        <div class="polaroid" id="lock-polaroid">
+          <div class="polaroid-img-wrap">
+            <img src="assets/photos/photo1.jpg" alt="Aya" class="polaroid-img" id="polaroid-photo"
+              onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" />
+            <div class="polaroid-fallback">💜</div>
+          </div>
+          <p class="polaroid-caption">Happy Birthday Aya </p>
+        </div>
+        <div class="lock-floating-hearts" aria-hidden="true">
+        
+        </div>
+      </div>
+
+      <div class="lock-right">
+        <div class="lock-icon" id="lock-icon">🔒</div>
+        <p class="lock-hint">Enter a passcode</p>
+        <div class="lock-dots" id="lock-dots">
+          <span class="dot" id="dot-0"></span>
+          <span class="dot" id="dot-1"></span>
+          <span class="dot" id="dot-2"></span>
+          <span class="dot" id="dot-3"></span>
+        </div>
+        <p class="lock-error" id="lock-error">Wrong code. Try again 💜</p>
+        <div class="keypad" id="keypad">
+          <button class="key" data-val="1" id="key-1">1</button>
+          <button class="key" data-val="2" id="key-2">2</button>
+          <button class="key" data-val="3" id="key-3">3</button>
+          <button class="key" data-val="4" id="key-4">4</button>
+          <button class="key" data-val="5" id="key-5">5</button>
+          <button class="key" data-val="6" id="key-6">6</button>
+          <button class="key" data-val="7" id="key-7">7</button>
+          <button class="key" data-val="8" id="key-8">8</button>
+          <button class="key" data-val="9" id="key-9">9</button>
+          <button class="key key-empty" id="key-empty" disabled></button>
+          <button class="key" data-val="0" id="key-0">0</button>
+          <button class="key key-del" id="key-del">⌫</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 2: LOADING ══════════════════════ -->
+  <div id="scene-loading" class="scene">
+    <div class="loading-floaters" id="loading-floaters" aria-hidden="true"></div>
+    <div class="loading-content">
+      <div class="loading-cake" id="loading-cake">🎂</div>
+      <h1 class="loading-title">Hey Aya! <span>🎉</span></h1>
+      <p class="loading-sub">Loading your birthday surprise...</p>
+      <div class="loading-bar-track">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+      <p class="loading-pct" id="loading-pct">0%</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 2.5: PUZZLE REVEAL ══════════════════════ -->
+  <div id="scene-puzzle" class="scene">
+    <div class="doodle-layer" id="puzzle-doodles"></div>
+    <div class="puzzle-content">
+      <p class="puzzle-label">a little something, just for you ✂️</p>
+      <div class="puzzle-board" id="puzzle-board"></div>
+      <p class="puzzle-caption" id="puzzle-caption"></p>
+      <button class="btn-primary" id="btn-puzzle-next" style="display:none">Keep Going </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 3: GREETING ══════════════════════ -->
+  <div id="scene-greeting" class="scene">
+    <div class="doodle-layer" id="greeting-doodles"></div>
+    <div class="greeting-bg">
+      <img src="assets/photos/photo4.jpg" alt="Aya" class="greeting-photo"
+        onerror="this.style.opacity='0'" />
+      <div class="greeting-overlay"></div>
+    </div>
+    <div class="greeting-content">
+      <div class="greeting-date" id="greeting-date">27 · 07</div>
+      <h1 class="greeting-title" id="greeting-title">Happy Birthday,<br/><em>Aya</em> 💜</h1>
+      <p class="greeting-quote">"This gift is like our friendship — thoughtful, unique and made just for you."</p>
+      <button class="btn-primary" id="btn-greeting-next">See Your Surprise </button>
+    </div>
+    <div class="greeting-floaters" aria-hidden="true" id="greeting-floaters"></div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 4: LETTER ══════════════════════ -->
+  <div id="scene-letter" class="scene">
+    <div class="letter-bg"></div>
+    <div class="doodle-layer" id="letter-doodles"></div>
+    <div class="letter-layout">
+
+      <div class="letter-card" id="letter-card">
+        <div class="letter-header">
+          <span class="letter-ornament">✦</span>
+          <div>
+            <p class="letter-happy">Happy</p>
+            <h2 class="letter-birthday">Birthday</h2>
+          </div>
+          <span class="letter-ornament">✦</span>
+        </div>
+        <div class="letter-body" id="letter-body"></div>
+        <div class="letter-signature">
+          <p>With all my love, respect, and gratitude,</p>
+          <p class="sig-name">Nour 💜</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="letter-footer">
+      <button class="btn-primary" id="btn-letter-next">Continue </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 5: HEART OF US (photo collage) ══════════════════════ -->
+  <div id="scene-heart" class="scene">
+    <div class="doodle-layer" id="heart-doodles"></div>
+    <div class="heart-content">
+      <p class="heart-kicker">every little moment</p>
+      <h2 class="heart-title">Made of a hundred memories<br/>with <em>you</em> 💜</h2>
+      <div class="heart-collage" id="heart-collage"></div>
+      <p class="heart-quote">I love the friend you are, and the friend you're still becoming.</p>
+      <button class="btn-primary" id="btn-heart-next">Make a Wish 🕯️</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 6: MAKE A WISH ══════════════════════ -->
+  <div id="scene-wish" class="scene">
+    <div class="wish-stars" id="wish-stars"></div>
+    <div class="doodle-layer" id="wish-doodles"></div>
+    <div class="wish-content">
+      <h2 class="wish-title"> Make a Wish </h2>
+      <div class="cake-wrap">
+        <div class="cake-candles" id="cake-candles"></div>
+        <div class="cake-number">21</div>
+        <div class="cake-body">
+          <div class="cake-top-layer"></div>
+          <div class="cake-bottom-layer"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+      <p class="wish-hint" id="wish-hint">Blow into your mic or click the candles 🎂</p>
+      <button class="btn-ghost" id="btn-blow-all">Blow all candles </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════ SCENE 7: FIREWORKS ══════════════════════ -->
+  <div id="scene-fireworks" class="scene">
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="final-content" id="final-content">
+      <div class="final-emoji">💜🎂💜</div>
+      <h1 class="final-title">Happy 21st Birthday,<br/><em>Aya!</em></h1>
+      <p class="final-sub">From Nour with all my love and gratitude 💜</p>
+      <div class="final-quote">"Meeting you has been one of the greatest blessings in my life."</div>
+      <button class="btn-primary" id="btn-replay">Replay the Experience </button>
+    </div>
+  </div>
+
+  <!-- Background music: add your own mp3 at assets/music/song.mp3 (see config.js) -->
+  <audio id="bg-audio" src="assets/music/song.mp3" loop preload="auto"></audio>
+
+  <!-- Music toggle -->
+  <button class="music-btn" id="music-btn" title="Toggle music">🎵</button>
+  <p class="music-hint" id="music-hint">tap for music 🎶</p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

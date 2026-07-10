@@ -1,0 +1,23 @@
+## Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## VS Code
+.vscode/
+
+## History/Temp
+.history/
+*.log
+
+## Build outputs
+dist/
+build/
+
+## Ignore local secrets
+.env
