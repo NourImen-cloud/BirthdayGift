@@ -40,7 +40,7 @@ function spawnParticles(containerId, count = 20) {
       animation-duration:${5+Math.random()*8}s;
       animation-delay:${Math.random()*6}s;
       opacity:${.2+Math.random()*.5};
-      background:hsl(${260+Math.random()*80},80%,70%);
+      background:hsl(${195+Math.random()*25},85%,75%);
     `;
     el.appendChild(p);
   }
@@ -245,7 +245,7 @@ function clearError() {
 // SCENE 2 — LOADING
 // ══════════════════════════════════════════════════════
 function runLoading() {
-  spawnFloaters('loading-floaters',['💜','✨','🎀','🎁','💫','🎊','🌸'],20);
+  spawnFloaters('loading-floaters',['🩵','✨','🎀','🎁','💫','🎊','🌸'],20);
   startMusic();
   let pct = 0;
   const bar = document.getElementById('loading-bar');
@@ -262,7 +262,7 @@ function runLoading() {
 // SCENE 3 — GREETING
 // ══════════════════════════════════════════════════════
 function runGreeting() {
-  spawnFloaters('greeting-floaters',['💜','✨','🌸','💫','🎀'],14);
+  spawnFloaters('greeting-floaters',['🩵','✨','🌸','💫','🎀'],14);
   spawnDoodles('greeting-doodles', ['lily','sparkle','heart'], 6);
   const els = ['.greeting-date','.greeting-title','.greeting-quote','#scene-greeting .btn-primary'];
   els.forEach((sel,i)=>{
@@ -370,7 +370,7 @@ function runPuzzle() {
 // ══════════════════════════════════════════════════════
 // SCENE 5 — HEART OF US (scrapbook photo collage)
 // ══════════════════════════════════════════════════════
-const HEART_EMOJIS = ['💜','✨','🌸','🎀','💫'];
+const HEART_EMOJIS = ['🩵','✨','🌸','🎀','💫'];
 
 function runHeart() {
   spawnDoodles('heart-doodles', ['lily','cat','sparkle'], 7);
@@ -508,8 +508,8 @@ function runFireworks() {
 
   const particles = [];
   const COLORS = [
-    '#C084FC','#A855F7','#F472B6','#FBBF24',
-    '#fff','#E879F9','#7C3AED','#60A5FA'
+    '#89CFF0','#7DD3FC','#38BDF8','#0284C7',
+    '#fff','#BAE6FD','#60A5FA','#FBBF24'
   ];
 
   class Particle {
@@ -541,7 +541,7 @@ function runFireworks() {
   let lastBurst=0;
   function loop(ts){
     fwRAF=requestAnimationFrame(loop);
-    ctx.fillStyle='rgba(5,0,8,.18)';
+    ctx.fillStyle='rgba(3,11,20,.18)';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     if(ts-lastBurst>600){
       lastBurst=ts;

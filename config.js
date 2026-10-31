@@ -1,5 +1,5 @@
 const CONFIG = {
-  recipient: 'Aya',
+  recipient: 'Safia',
   sender: 'Nour',
   unlockCode: '2707',
   age: 21,
@@ -12,7 +12,7 @@ const CONFIG = {
   // Photo used for the puzzle-reveal scene (defaults to the 3rd photo)
   puzzleImage: 'assets/photos/photo3.jpg',
   puzzleCaption: 'Our story is a puzzle only we could piece together 🧩',
-  letter: `Dear Aya,
+  letter: `Dear Safia,
 
 There are some people who come into our lives and leave beautiful memories, and then there are people who become part of our story. You are one of those people.
 
@@ -38,6 +38,6 @@ Thank you for being my friend, my support, and one of the most wonderful people 
     { src: 'assets/photos/photo2.jpg', caption: 'Sunlit adventures ' },
     { src: 'assets/photos/photo3.jpg', caption: 'Street memories ' },
     { src: 'assets/photos/photo4.jpg', caption: 'Cinema nights ' },
-    { src: 'assets/photos/photo5.jpg', caption: 'Purple vibes ' }
+    { src: 'assets/photos/photo5.jpg', caption: 'Baby blue vibes ' }
   ]
 };

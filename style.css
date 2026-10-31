@@ -1,18 +1,18 @@
 /* ─── TOKENS ─────────────────────────────────────────── */
 :root {
-  --dp: #1A0630;
-  --p900: #3B0764;
-  --p700: #7E22CE;
-  --p500: #A855F7;
-  --p400: #C084FC;
-  --p300: #D8B4FE;
-  --p100: #F3E8FF;
-  --rose: #F472B6;
+  --dp: #061325;
+  --p900: #0C2D48;
+  --p700: #0284C7;
+  --p500: #38BDF8;
+  --p400: #7DD3FC;
+  --p300: #BAE6FD;
+  --p100: #E0F2FE;
+  --rose: #38BDF8;
   --gold: #FBBF24;
   --cream: #FDF6ED;
   --white: #ffffff;
   --radius: 18px;
-  --shadow: 0 8px 40px rgba(126,34,206,.35);
+  --shadow: 0 8px 40px rgba(2,132,199,.35);
   --paper: #FFF9F0;
   --ink: #4a3728;
 }
@@ -44,28 +44,28 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* ─── BUTTONS ─────────────────────────────────────────── */
 .btn-primary{
   padding:14px 36px;border-radius:50px;font-size:1rem;font-weight:600;
-  background:linear-gradient(135deg,var(--p700),var(--rose));
+  background:linear-gradient(135deg,var(--p700),var(--p500));
   color:#fff;letter-spacing:.5px;
-  box-shadow:0 4px 24px rgba(168,85,247,.45);
+  box-shadow:0 4px 24px rgba(56,189,248,.45);
   transition:transform .2s,box-shadow .2s;
 }
-.btn-primary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 32px rgba(168,85,247,.6)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 32px rgba(56,189,248,.6)}
 .btn-ghost{
   padding:12px 30px;border-radius:50px;font-size:.95rem;
   border:2px solid var(--p400);color:var(--p300);
   transition:all .2s;margin-top:16px;
 }
-.btn-ghost:hover{background:rgba(168,85,247,.15);color:#fff}
+.btn-ghost:hover{background:rgba(56,189,248,.15);color:#fff}
 
 /* ─── MUSIC BTN ───────────────────────────────────────── */
 .music-btn{
   position:fixed;top:18px;right:18px;z-index:9999;
   width:46px;height:46px;border-radius:50%;font-size:1.25rem;
-  background:rgba(168,85,247,.25);backdrop-filter:blur(10px);
-  border:1px solid rgba(168,85,247,.4);color:#fff;
+  background:rgba(56,189,248,.25);backdrop-filter:blur(10px);
+  border:1px solid rgba(56,189,248,.4);color:#fff;
   transition:all .2s;
 }
-.music-btn:hover{background:rgba(168,85,247,.45);transform:scale(1.1)}
+.music-btn:hover{background:rgba(56,189,248,.45);transform:scale(1.1)}
 .music-btn.muted{opacity:.5}
 
 /* ─── PARTICLES ───────────────────────────────────────── */
@@ -85,7 +85,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 1 – LOCK SCREEN
 ════════════════════════════════════════════════════════ */
 #scene-lock{
-  background:linear-gradient(135deg,#2D0553 0%,#4A1272 50%,#2D0553 100%);
+  background:linear-gradient(135deg,#081d34 0%,#0f385e 50%,#081d34 100%);
 }
 .lock-layout{
   display:flex;align-items:center;justify-content:center;
@@ -102,7 +102,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .polaroid::after{
   content:'';position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);
-  width:70px;height:26px;background:rgba(216,180,254,.55);
+  width:70px;height:26px;background:rgba(186,230,253,.55);
   box-shadow:0 2px 4px rgba(0,0,0,.15);
 }
 .polaroid:hover{transform:rotate(0deg) scale(1.03)}
@@ -170,13 +170,13 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .key{
   width:70px;height:70px;border-radius:50%;
-  background:rgba(255,255,255,.08);border:1.5px solid rgba(168,85,247,.3);
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(56,189,248,.3);
   color:#fff;font-size:1.4rem;font-weight:500;
   backdrop-filter:blur(8px);transition:all .15s;
 }
 .key:hover:not(:disabled){
-  background:rgba(168,85,247,.3);border-color:var(--p400);
-  transform:scale(1.08);box-shadow:0 0 16px rgba(168,85,247,.4);
+  background:rgba(56,189,248,.3);border-color:var(--p400);
+  transform:scale(1.08);box-shadow:0 0 16px rgba(56,189,248,.4);
 }
 .key:active:not(:disabled){transform:scale(.95)}
 .key.key-del{font-size:1.1rem;color:var(--p300)}
@@ -193,7 +193,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 2 – LOADING
 ════════════════════════════════════════════════════════ */
 #scene-loading{
-  background:radial-gradient(ellipse at center,#1e0533 0%,#0a0015 100%);
+  background:radial-gradient(ellipse at center,#09233f 0%,#030d18 100%);
   flex-direction:column;gap:0;
 }
 .loading-floaters{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -225,7 +225,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .loading-bar{
   height:100%;width:0%;border-radius:6px;
-  background:linear-gradient(90deg,var(--p700),var(--rose),var(--p400));
+  background:linear-gradient(90deg,var(--p700),var(--p500),var(--p400));
   transition:width .1s linear;
   box-shadow:0 0 12px var(--p500);
 }
@@ -239,7 +239,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .greeting-photo{width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(1.2)}
 .greeting-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(26,6,48,.95) 0%,rgba(26,6,48,.5) 60%,rgba(26,6,48,.2) 100%);
+  background:linear-gradient(to top,rgba(6,19,37,.95) 0%,rgba(6,19,37,.5) 60%,rgba(6,19,37,.2) 100%);
 }
 .greeting-content{
   position:relative;z-index:1;text-align:center;
@@ -272,7 +272,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 4 – LETTER
 ════════════════════════════════════════════════════════ */
 #scene-letter{
-  background:linear-gradient(135deg,#2D0553 0%,#1A0630 100%);
+  background:linear-gradient(135deg,#0c2d48 0%,#061325 100%);
   align-items:flex-start;overflow-y:auto;padding:30px 16px;
   justify-content:center;
 }
@@ -281,7 +281,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
 }
-.letter-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(168,85,247,.12) 0%,transparent 70%)}
+.letter-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(56,189,248,.12) 0%,transparent 70%)}
 .letter-layout{
   display:flex;align-items:center;justify-content:center;
   width:100%;max-width:680px;z-index:1;padding:10px;
@@ -295,12 +295,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .letter-card::after{
   content:'';position:absolute;top:-16px;left:60px;transform:rotate(-4deg);
-  width:64px;height:24px;background:rgba(244,114,182,.5);
+  width:64px;height:24px;background:rgba(125,211,252,.55);
   box-shadow:0 2px 4px rgba(0,0,0,.15);
 }
 .letter-card::before{
   content:'';position:absolute;inset:8px;
-  border:1px solid rgba(126,34,206,.15);border-radius:2px;pointer-events:none;
+  border:1px solid rgba(2,132,199,.15);border-radius:2px;pointer-events:none;
 }
 .letter-header{
   display:flex;align-items:center;justify-content:center;
@@ -327,7 +327,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .letter-signature{
-  margin-top:28px;border-top:1px solid rgba(126,34,206,.2);
+  margin-top:28px;border-top:1px solid rgba(2,132,199,.2);
   padding-top:16px;font-family:'Lora',serif;font-size:.9rem;
   color:#6b5b4e;font-style:italic;
 }
@@ -343,7 +343,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 6 – MAKE A WISH
 ════════════════════════════════════════════════════════ */
 #scene-wish{
-  background:radial-gradient(ellipse at 50% 60%,#1a0030 0%,#050008 100%);
+  background:radial-gradient(ellipse at 50% 60%,#081c33 0%,#02070e 100%);
   flex-direction:column;
 }
 .wish-stars{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -394,17 +394,17 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .cake-body{position:relative;width:200px;margin:0 auto}
 .cake-top-layer{
   width:160px;height:50px;margin:0 auto;
-  background:linear-gradient(180deg,#c084fc,#a855f7);
+  background:linear-gradient(180deg,#7dd3fc,#38bdf8);
   border-radius:8px 8px 0 0;position:relative;
 }
 .cake-top-layer::after{
   content:'';position:absolute;top:0;left:0;right:0;height:12px;
-  background:linear-gradient(90deg,#f3e8ff,#e9d5ff,#f3e8ff);
+  background:linear-gradient(90deg,#f0f9ff,#bae6fd,#f0f9ff);
   border-radius:8px 8px 0 0;
 }
 .cake-bottom-layer{
   width:200px;height:70px;
-  background:linear-gradient(180deg,#9333ea,#7e22ce);
+  background:linear-gradient(180deg,#38bdf8,#0284c7);
   border-radius:0 0 4px 4px;position:relative;overflow:hidden;
 }
 .cake-bottom-layer::before{
@@ -421,7 +421,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 /* ════════════════════════════════════════════════════════
    SCENE 7 – FIREWORKS
 ════════════════════════════════════════════════════════ */
-#scene-fireworks{background:#050008;flex-direction:column}
+#scene-fireworks{background:#02070e;flex-direction:column}
 #fireworks-canvas{position:absolute;inset:0;width:100%;height:100%}
 .final-content{
   position:relative;z-index:1;text-align:center;
@@ -447,7 +447,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 2.5 – PUZZLE REVEAL
 ════════════════════════════════════════════════════════ */
 #scene-puzzle{
-  background:linear-gradient(160deg,#FFF3E4 0%,#F3E8FF 55%,#FDF6ED 100%);
+  background:linear-gradient(160deg,#F0F9FF 0%,#E0F2FE 55%,#FDF6ED 100%);
   flex-direction:column;
 }
 .puzzle-content{position:relative;z-index:1;text-align:center;padding:24px}
@@ -459,7 +459,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
   position:relative;width:280px;height:280px;margin:0 auto;
   display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);
   gap:3px;background:#fff;padding:8px;border-radius:8px;
-  box-shadow:0 16px 46px rgba(126,34,206,.28);
+  box-shadow:0 16px 46px rgba(2,132,199,.28);
   transform:rotate(-1.2deg);
 }
 .puzzle-piece{
@@ -481,7 +481,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    SCENE 5 – HEART OF US (scrapbook photo collage)
 ════════════════════════════════════════════════════════ */
 #scene-heart{
-  background:linear-gradient(180deg,#2D0553 0%,#1A0630 100%);
+  background:linear-gradient(180deg,#0c2d48 0%,#061325 100%);
   flex-direction:column;overflow-y:auto;padding:32px 16px;
 }
 .heart-content{position:relative;z-index:1;text-align:center;max-width:520px;margin:0 auto}
@@ -506,7 +506,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .heart-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .heart-photo-fallback{
   display:none;width:100%;height:100%;align-items:center;justify-content:center;
-  font-size:2rem;background:linear-gradient(135deg,var(--p300),var(--rose));
+  font-size:2rem;background:linear-gradient(135deg,var(--p300),var(--p500));
 }
 .heart-photo-tape{
   position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-4deg);
@@ -527,7 +527,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .music-hint{
   position:fixed;top:22px;right:72px;z-index:9998;
   font-family:'Caveat',cursive;font-size:1.15rem;color:#fff;
-  background:rgba(168,85,247,.35);backdrop-filter:blur(6px);
+  background:rgba(56,189,248,.35);backdrop-filter:blur(6px);
   padding:4px 14px;border-radius:20px;opacity:0;pointer-events:none;
   transition:opacity .3s;
 }
