@@ -185,6 +185,17 @@ function unlockMusicOnce() {
 let pinBuffer = '';
 
 function setupLock() {
+  const polImg = document.getElementById('polaroid-photo');
+  if (polImg) {
+    const lockSrc = CONFIG.lockPhoto || (CONFIG.photos && CONFIG.photos[0] && CONFIG.photos[0].src) || 'assets/photos/photo1.jpg';
+    polImg.src = lockSrc;
+    polImg.style.display = 'block';
+    if (polImg.parentElement) polImg.parentElement.classList.remove('no-photo');
+    polImg.onerror = () => {
+      polImg.style.display = 'none';
+      if (polImg.parentElement) polImg.parentElement.classList.add('no-photo');
+    };
+  }
   spawnParticles('lock-particles', 25);
   spawnDoodles('lock-doodles', ['cat','lily','sparkle'], 7);
   document.querySelectorAll('.key[data-val]').forEach(k => {
@@ -266,6 +277,10 @@ function runGreeting() {
     const gd = document.getElementById('greeting-date');
     if (gd) gd.textContent = CONFIG.birthdayDate;
   }
+  if (CONFIG.greetingPhoto) {
+    const gp = document.getElementById('greeting-photo');
+    if (gp) gp.src = CONFIG.greetingPhoto;
+  }
   spawnFloaters('greeting-floaters',['🩵','✨','🌸','💫','🎀'],14);
   spawnDoodles('greeting-doodles', ['lily','sparkle','heart'], 6);
   const els = ['.greeting-date','.greeting-title','.greeting-quote','#scene-greeting .btn-primary'];
@@ -337,6 +352,17 @@ function runPuzzle() {
   const size = 3; // 3x3 pieces
   const img = CONFIG.puzzleImage || (CONFIG.photos[0] && CONFIG.photos[0].src);
   const pieces = [];
+
+  const imgObj = new Image();
+  imgObj.src = img;
+  imgObj.onload = () => {
+    if (imgObj.naturalWidth && imgObj.naturalHeight) {
+      const ar = imgObj.naturalWidth / imgObj.naturalHeight;
+      if (ar > 1.25) board.style.aspectRatio = Math.min(ar, 1.5).toString();
+      else if (ar < 0.8) board.style.aspectRatio = Math.max(ar, 0.75).toString();
+      else board.style.aspectRatio = '1 / 1';
+    }
+  };
 
   for (let r = 0; r < size; r++) {
     for (let c = 0; c < size; c++) {

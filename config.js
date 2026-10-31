@@ -5,9 +5,15 @@ const CONFIG = {
   age: 22,
   birthdayDate: '30 · 10',
 
+  // Lock screen polaroid photo
+  lockPhoto: 'assets/photos/photo1.jpg',
+
   // Put your own audio file here (mp3). This plays as background music.
   // Local files avoid the YouTube-embed issues that stopped the song from playing.
   musicFile: 'assets/music/song.mp3',
+
+  // Photo used for greeting background
+  greetingPhoto: 'assets/photos/photo4.jpg',
 
   // Photo used for the puzzle-reveal scene (defaults to the 3rd photo)
   puzzleImage: 'assets/photos/photo3.jpg',
