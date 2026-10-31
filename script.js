@@ -187,7 +187,7 @@ let pinBuffer = '';
 function setupLock() {
   const polImg = document.getElementById('polaroid-photo');
   if (polImg) {
-    const lockSrc = CONFIG.lockPhoto || (CONFIG.photos && CONFIG.photos[0] && CONFIG.photos[0].src) || 'assets/photos/photo1.jpg';
+    const lockSrc = (CONFIG && CONFIG.lockPhoto) || polImg.getAttribute('src') || 'assets/photos/photo2.jpg';
     polImg.src = lockSrc;
     polImg.style.display = 'block';
     if (polImg.parentElement) polImg.parentElement.classList.remove('no-photo');
@@ -300,10 +300,14 @@ function runGreeting() {
 // ══════════════════════════════════════════════════════
 function runLetter() {
   spawnDoodles('letter-doodles', ['lily','cat'], 5);
+  const scene  = document.getElementById('scene-letter');
   const body   = document.getElementById('letter-body');
   const card   = document.getElementById('letter-card');
   const text   = CONFIG.letter;
   let i = 0, cursor;
+
+  // Always reset scroll to the top so the letter header is fully visible
+  if (scene) scene.scrollTop = 0;
 
   // Slide card in
   card.style.opacity = '0'; card.style.transform = 'translateY(40px)';
@@ -317,13 +321,31 @@ function runLetter() {
   cursor.className = 'letter-cursor';
   body.appendChild(cursor);
 
+  let typeTimer = null;
+  function finishTyping() {
+    if (typeTimer) clearTimeout(typeTimer);
+    if (i < text.length) {
+      body.insertBefore(document.createTextNode(text.slice(i)), cursor);
+      i = text.length;
+    }
+    if (cursor) cursor.remove();
+  }
+
+  // Tap anywhere on the card to reveal the full letter immediately
+  card.addEventListener('click', finishTyping, {once:true});
+
   function type() {
-    if (i >= text.length) { cursor.remove(); return; }
+    if (i >= text.length) { if (cursor) cursor.remove(); return; }
     const chunk = text[i++];
     const node = document.createTextNode(chunk);
     body.insertBefore(node, cursor);
-    body.parentElement.scrollTop = body.parentElement.scrollHeight;
-    setTimeout(type, chunk==='\n' ? 180 : 18);
+    if (scene && cursor) {
+      const rect = cursor.getBoundingClientRect();
+      if (rect.bottom > window.innerHeight - 80) {
+        scene.scrollTop += 26;
+      }
+    }
+    typeTimer = setTimeout(type, chunk==='\n' ? 140 : 16);
   }
   setTimeout(type, 600);
 

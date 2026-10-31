@@ -6,7 +6,7 @@ const CONFIG = {
   birthdayDate: '30 · 10',
 
   // Lock screen polaroid photo
-  lockPhoto: 'assets/photos/photo1.jpg',
+  lockPhoto: 'assets/photos/photo2.jpg',
 
   // Put your own audio file here (mp3). This plays as background music.
   // Local files avoid the YouTube-embed issues that stopped the song from playing.
