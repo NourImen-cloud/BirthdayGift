@@ -1,9 +1,9 @@
 const CONFIG = {
   recipient: 'Safia',
   sender: 'Nour',
-  unlockCode: '2707',
-  age: 21,
-  birthdayDate: '27 · 07',
+  unlockCode: '3010',
+  age: 22,
+  birthdayDate: '30 · 10',
 
   // Put your own audio file here (mp3). This plays as background music.
   // Local files avoid the YouTube-embed issues that stopped the song from playing.

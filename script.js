@@ -262,6 +262,10 @@ function runLoading() {
 // SCENE 3 — GREETING
 // ══════════════════════════════════════════════════════
 function runGreeting() {
+  if (CONFIG.birthdayDate) {
+    const gd = document.getElementById('greeting-date');
+    if (gd) gd.textContent = CONFIG.birthdayDate;
+  }
   spawnFloaters('greeting-floaters',['🩵','✨','🌸','💫','🎀'],14);
   spawnDoodles('greeting-doodles', ['lily','sparkle','heart'], 6);
   const els = ['.greeting-date','.greeting-title','.greeting-quote','#scene-greeting .btn-primary'];
@@ -412,6 +416,9 @@ function buildCandles() {
   const wrap = document.getElementById('cake-candles');
   wrap.innerHTML = '';
   candlesOut = 0;
+  totalCandles = CONFIG.age || 22;
+  const cakeNum = document.querySelector('.cake-number');
+  if (cakeNum) cakeNum.textContent = totalCandles;
   for (let i=0;i<totalCandles;i++){
     const c = document.createElement('div');
     c.className = 'candle';

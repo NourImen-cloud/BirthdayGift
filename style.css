@@ -32,12 +32,17 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 /* ─── SCENES ─────────────────────────────────────────── */
 .scene{
-  position:fixed;inset:0;width:100%;height:100%;
+  position:fixed;inset:0;width:100%;height:100%;height:100dvh;
   display:flex;align-items:center;justify-content:center;
   opacity:0;pointer-events:none;transition:opacity .6s ease;
-  overflow:hidden;
+  overflow-y:auto;overflow-x:hidden;
   -webkit-overflow-scrolling: touch;
-  touch-action: manipulation;
+  touch-action: pan-y;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing:border-box;
+}
+.lock-layout, .loading-content, .puzzle-content, .greeting-content, .letter-layout, .heart-content, .wish-content, .final-content {
+  margin: auto;
 }
 .scene.active{opacity:1;pointer-events:all}
 
@@ -362,7 +367,10 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 .candle{
   position:relative;width:10px;display:flex;flex-direction:column;
-  align-items:center;
+  align-items:center;cursor:pointer;touch-action:manipulation;
+}
+.candle::before{
+  content:'';position:absolute;top:-12px;bottom:-6px;left:-8px;right:-8px;cursor:pointer;
 }
 .candle-stick{
   width:10px;height:36px;border-radius:2px;
@@ -535,25 +543,300 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 
 @media(max-width:768px){
-  .lock-layout{flex-direction:column;gap:30px}
-  .polaroid-img-wrap{width:180px;height:210px}
-  .keypad{grid-template-columns:repeat(3,62px);grid-template-rows:repeat(4,62px)}
-  .key{width:62px;height:62px;font-size:1.2rem}
-  .letter-layout{flex-direction:column;align-items:center}
-  .letter-side{flex-direction:row;padding-top:0}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .greeting-title{font-size:2rem}
-  .cake-body{width:160px}
-  .cake-bottom-layer{width:160px}
-  .cake-plate{width:175px}
-  .puzzle-board{width:220px;height:220px}
-  .heart-collage{width:260px;height:250px;transform:scale(.9)}
+  .lock-layout{
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+  .polaroid{
+    padding: 10px 10px 36px;
+  }
+  .polaroid-img-wrap{
+    width: 150px;
+    height: 175px;
+  }
+  .polaroid-caption{
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+  .lock-floating-hearts{
+    margin-top: 10px;
+    gap: 14px;
+  }
+  .lock-floating-hearts span{
+    font-size: 1.15rem;
+  }
+  .lock-right{
+    gap: 12px;
+  }
+  .lock-icon{
+    font-size: 2rem;
+  }
+  .lock-hint{
+    font-size: .85rem;
+    letter-spacing: 1.5px;
+  }
+  .keypad{
+    grid-template-columns: repeat(3, 58px);
+    grid-template-rows: repeat(4, 58px);
+    gap: 10px;
+  }
+  .key{
+    width: 58px;
+    height: 58px;
+    font-size: 1.25rem;
+  }
+  .letter-layout{
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+  }
+  .letter-card{
+    padding: 32px 24px 28px;
+  }
+  .greeting-title{
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+  .greeting-quote{
+    font-size: .95rem;
+    margin-bottom: 24px;
+  }
+  .cake-body{
+    width: 170px;
+  }
+  .cake-top-layer{
+    width: 140px;
+    height: 44px;
+  }
+  .cake-bottom-layer{
+    width: 170px;
+    height: 60px;
+  }
+  .cake-plate{
+    width: 190px;
+    height: 14px;
+  }
+  .cake-candles{
+    max-width: 160px;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .puzzle-board{
+    width: 220px;
+    height: 220px;
+  }
+  .heart-collage{
+    width: 260px;
+    height: 250px;
+    transform: scale(.9);
+  }
 }
+
 @media(max-width:480px){
-  .lock-layout{gap:16px;padding:16px}
-  .polaroid-img-wrap{width:150px;height:175px}
-  .gallery-grid{grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-  .wish-title{font-size:1.4rem}
-  .music-btn{width:40px;height:40px;top:12px;right:12px;font-size:1rem}
-  .music-hint{top:14px;right:56px;font-size:1rem}
+  .lock-layout{
+    gap: 14px;
+    padding: 16px 12px;
+  }
+  .polaroid{
+    padding: 8px 8px 30px;
+  }
+  .polaroid::after{
+    width: 56px;
+    height: 20px;
+    top: -10px;
+  }
+  .polaroid-img-wrap{
+    width: 130px;
+    height: 150px;
+  }
+  .polaroid-caption{
+    font-size: 1.05rem;
+    margin-top: 6px;
+  }
+  .lock-right{
+    gap: 8px;
+  }
+  .lock-icon{
+    font-size: 1.7rem;
+  }
+  .lock-dots{
+    gap: 10px;
+  }
+  .dot{
+    width: 12px;
+    height: 12px;
+  }
+  .keypad{
+    grid-template-columns: repeat(3, 54px);
+    grid-template-rows: repeat(4, 54px);
+    gap: 8px;
+  }
+  .key{
+    width: 54px;
+    height: 54px;
+    font-size: 1.15rem;
+  }
+  .key.key-del{
+    font-size: .95rem;
+  }
+  .loading-cake{
+    font-size: 3.8rem;
+    margin-bottom: 12px;
+  }
+  .loading-title{
+    font-size: 1.9rem;
+  }
+  .loading-sub{
+    font-size: .9rem;
+    margin-bottom: 20px;
+  }
+  .loading-bar-track{
+    width: 250px;
+  }
+  .puzzle-board{
+    width: 200px;
+    height: 200px;
+  }
+  .puzzle-label{
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+  }
+  .puzzle-caption{
+    font-size: .95rem;
+    margin-top: 16px;
+  }
+  #btn-puzzle-next{
+    margin-top: 18px;
+  }
+  .greeting-content{
+    padding: 16px;
+  }
+  .greeting-date{
+    font-size: .85rem;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+  }
+  .greeting-title{
+    font-size: 2.1rem;
+    margin-bottom: 14px;
+  }
+  .greeting-quote{
+    font-size: .9rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  #scene-letter{
+    padding: 16px 10px 24px;
+  }
+  .letter-card{
+    padding: 24px 18px 20px;
+  }
+  .letter-header{
+    margin-bottom: 16px;
+  }
+  .letter-birthday{
+    font-size: 1.8rem;
+  }
+  .letter-body{
+    font-size: .88rem;
+    line-height: 1.7;
+    min-height: 160px;
+  }
+  .letter-signature{
+    margin-top: 20px;
+  }
+  .sig-name{
+    font-size: 1.25rem;
+  }
+  .heart-kicker{
+    font-size: 1.3rem;
+  }
+  .heart-title{
+    font-size: 1.45rem;
+    margin-bottom: 20px;
+  }
+  .heart-collage{
+    width: 240px;
+    height: 230px;
+    transform: scale(.82);
+    margin-bottom: 16px;
+  }
+  .heart-quote{
+    font-size: .9rem;
+    margin-bottom: 20px;
+  }
+  .wish-title{
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  .cake-number{
+    font-size: 1.4rem;
+  }
+  .cake-wrap{
+    margin-bottom: 20px;
+  }
+  .wish-hint{
+    font-size: .85rem;
+  }
+  .btn-ghost{
+    margin-top: 10px;
+    padding: 10px 24px;
+    font-size: .88rem;
+  }
+  .btn-primary{
+    padding: 12px 28px;
+    font-size: .92rem;
+  }
+  .final-content{
+    padding: 16px;
+  }
+  .final-emoji{
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .final-title{
+    font-size: 1.85rem;
+    margin-bottom: 12px;
+  }
+  .final-sub{
+    font-size: .95rem;
+    margin-bottom: 14px;
+  }
+  .final-quote{
+    font-size: .88rem;
+    margin-bottom: 22px;
+  }
+  .music-btn{
+    width: 38px;
+    height: 38px;
+    top: 10px;
+    right: 10px;
+    font-size: .95rem;
+  }
+  .music-hint{
+    top: 12px;
+    right: 52px;
+    font-size: .9rem;
+    padding: 3px 10px;
+  }
+}
+
+@media(max-width:350px){
+  .keypad{
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(4, 48px);
+    gap: 6px;
+  }
+  .key{
+    width: 48px;
+    height: 48px;
+    font-size: 1.05rem;
+  }
+  .polaroid-img-wrap{
+    width: 110px;
+    height: 130px;
+  }
+  .heart-collage{
+    transform: scale(.72);
+  }
 }
